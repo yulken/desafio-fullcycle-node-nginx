@@ -5,6 +5,7 @@ services:
     build:
       context: ./node
       dockerfile: Dockerfile.prod
+    image: yulken/desafio-node:node
     container_name: node
     networks:
       - my_network
@@ -15,6 +16,7 @@ services:
     build:
       context: ./nginx
       dockerfile: Dockerfile.prod
+    image: yulken/desafio-node:nginx
     container_name: nginx
     networks:
       - my_network
