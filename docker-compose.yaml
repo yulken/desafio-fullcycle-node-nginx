@@ -5,18 +5,21 @@ services:
     build:
       context: ./node
       dockerfile: Dockerfile.prod
-    image: yulken/desafio-node:node
+    image: yulken/desafio_node_node:latest
     container_name: node
     networks:
       - my_network
     depends_on:
       - db
+    volumes: 
+    - ./node/:/usr/src/app
+    - /usr/src/app/node_modules
 
   nginx:
     build:
       context: ./nginx
       dockerfile: Dockerfile.prod
-    image: yulken/desafio-node:nginx
+    image: yulken/desafio_node_nginx:latest
     container_name: nginx
     networks:
       - my_network
